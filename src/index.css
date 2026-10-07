@@ -1,0 +1,1221 @@
+/* =========================================================
+   BLOOMORA — PREMIUM GLOBAL DESIGN SYSTEM
+========================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap");
+
+@import "tailwindcss";
+
+/* =========================================================
+   ROOT VARIABLES
+========================================================= */
+
+:root {
+  --bloom-green: #173f35;
+  --bloom-green-dark: #0e3028;
+  --bloom-green-light: #245b4d;
+
+  --bloom-pink: #d45b72;
+  --bloom-pink-light: #f7b8c4;
+  --bloom-pink-soft: #fff0f3;
+
+  --bloom-cream: #fffaf7;
+  --bloom-beige: #f8f3ee;
+
+  --bloom-text: #173f35;
+  --bloom-muted: #78716c;
+
+  --bloom-border: #e8e3df;
+
+  --shadow-soft:
+    0 10px 35px rgba(23, 63, 53, 0.08);
+
+  --shadow-card:
+    0 18px 50px rgba(23, 63, 53, 0.11);
+
+  --shadow-heavy:
+    0 30px 80px rgba(23, 63, 53, 0.18);
+}
+
+/* =========================================================
+   GLOBAL RESET
+========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  min-width: 320px;
+
+  background: var(--bloom-cream);
+  color: var(--bloom-text);
+
+  font-family: "DM Sans", sans-serif;
+
+  overflow-x: hidden;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================================================
+   REMOVE SCROLLBAR
+========================================================= */
+
+html,
+body,
+* {
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* =========================================================
+   SELECTION
+========================================================= */
+
+::selection {
+  background: var(--bloom-pink);
+  color: white;
+}
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+
+.font-display {
+  font-family: "Playfair Display", serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================================================
+   CONTAINER SYSTEM
+========================================================= */
+
+.container-shell {
+  width: min(100% - 2rem, 1400px);
+  margin-inline: auto;
+}
+
+.bloomora-container {
+  width: min(100% - 2rem, 1400px);
+  margin-inline: auto;
+}
+
+@media (min-width: 640px) {
+  .container-shell,
+  .bloomora-container {
+    width: min(100% - 3rem, 1400px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-shell,
+  .bloomora-container {
+    width: min(100% - 4rem, 1400px);
+  }
+}
+
+@media (min-width: 1536px) {
+  .container-shell,
+  .bloomora-container {
+    width: min(100% - 5rem, 1440px);
+  }
+}
+
+/* =========================================================
+   SECTION SPACING
+========================================================= */
+
+.section-padding {
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding-top: 52px;
+    padding-bottom: 52px;
+  }
+}
+
+/* =========================================================
+   PAGE LOAD
+========================================================= */
+
+#root {
+  min-height: 100vh;
+  animation: pageEnter 0.65s ease both;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   PREMIUM BUTTONS
+========================================================= */
+
+.bloomora-btn {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  min-height: 48px;
+
+  padding: 12px 20px;
+
+  border-radius: 999px;
+
+  border: 0;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+
+  isolation: isolate;
+}
+
+.bloomora-btn::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 80%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+
+  transition: left 0.7s ease;
+
+  z-index: -1;
+}
+
+.bloomora-btn:hover::before {
+  left: 130%;
+}
+
+.bloomora-btn:hover {
+  transform: translateY(-3px);
+}
+
+.bloomora-btn:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+.bloomora-btn-primary {
+  background: var(--bloom-green);
+  color: white;
+
+  box-shadow:
+    0 10px 25px rgba(23, 63, 53, 0.18);
+}
+
+.bloomora-btn-primary:hover {
+  background: var(--bloom-green-light);
+
+  box-shadow:
+    0 16px 35px rgba(23, 63, 53, 0.25);
+}
+
+.bloomora-btn-secondary {
+  background: white;
+  color: var(--bloom-green);
+
+  border: 1px solid var(--bloom-border);
+
+  box-shadow:
+    0 8px 22px rgba(23, 63, 53, 0.07);
+}
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.bloomora-input {
+  width: 100%;
+
+  min-height: 50px;
+
+  border: 1px solid var(--bloom-border);
+
+  border-radius: 999px;
+
+  background: white;
+
+  padding: 0 18px;
+
+  color: var(--bloom-text);
+
+  outline: none;
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.bloomora-input:focus {
+  border-color: #9ab8aa;
+
+  box-shadow:
+    0 0 0 4px rgba(23, 63, 53, 0.07);
+
+  transform: translateY(-1px);
+}
+
+.bloomora-input::placeholder {
+  color: #a8a29e;
+}
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.bloomora-navbar {
+  position: sticky;
+
+  top: 0;
+
+  z-index: 100;
+
+  background:
+    rgba(255, 255, 255, 0.94);
+
+  border-bottom: 1px solid rgba(231, 229, 228, 0.8);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.bloomora-navbar:hover {
+  box-shadow:
+    0 8px 30px rgba(23, 63, 53, 0.06);
+}
+
+/* Navbar links */
+
+.bloomora-navbar a {
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.bloomora-navbar a:hover {
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   HERO ANIMATIONS
+========================================================= */
+
+.animate-fade-up {
+  animation:
+    fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-fade-in {
+  animation:
+    fadeIn 0.8s ease both;
+}
+
+.animate-scale-in {
+  animation:
+    scaleIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-slide-left {
+  animation:
+    slideLeft 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-slide-right {
+  animation:
+    slideRight 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-float {
+  animation:
+    floatFlower 5s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation:
+    floatSlow 7s ease-in-out infinite;
+}
+
+.animate-pulse-soft {
+  animation:
+    pulseSoft 3s ease-in-out infinite;
+}
+
+/* =========================================================
+   KEYFRAMES
+========================================================= */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes floatFlower {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(1deg);
+  }
+}
+
+@keyframes floatSlow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -18px, 0);
+  }
+}
+
+@keyframes pulseSoft {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+/* =========================================================
+   HERO IMAGE EFFECT
+========================================================= */
+
+.hero-image,
+.hero-image img {
+  transition:
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.5s ease;
+}
+
+.hero-image:hover img {
+  transform: scale(1.035);
+}
+
+/* =========================================================
+   CATEGORY CARDS
+========================================================= */
+
+.category-card {
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 24px;
+
+  background: #f5f5f4;
+
+  box-shadow:
+    0 10px 30px rgba(23, 63, 53, 0.06);
+
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-8px);
+
+  box-shadow:
+    0 25px 55px rgba(23, 63, 53, 0.14);
+}
+
+.category-card img {
+  transition:
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.5s ease;
+}
+
+.category-card:hover img {
+  transform: scale(1.08);
+  filter: saturate(1.08);
+}
+
+/* =========================================================
+   PRODUCT CARDS
+========================================================= */
+
+.product-card {
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 24px;
+
+  background: white;
+
+  border: 1px solid rgba(231, 229, 228, 0.9);
+
+  box-shadow:
+    0 8px 25px rgba(23, 63, 53, 0.045);
+
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s ease,
+    border-color 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+
+  border-color: rgba(23, 63, 53, 0.12);
+
+  box-shadow:
+    0 25px 55px rgba(23, 63, 53, 0.12);
+}
+
+.product-card-image {
+  position: relative;
+
+  overflow: hidden;
+
+  background: #f5f1ed;
+}
+
+.product-card-image img {
+  transition:
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.5s ease;
+}
+
+.product-card:hover .product-card-image img {
+  transform: scale(1.08);
+  filter: saturate(1.06);
+}
+
+/* =========================================================
+   PRODUCT CARD STAGGER
+========================================================= */
+
+.product-card:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.product-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.product-card:nth-child(3) {
+  animation-delay: 0.15s;
+}
+
+.product-card:nth-child(4) {
+  animation-delay: 0.2s;
+}
+
+.product-card:nth-child(5) {
+  animation-delay: 0.25s;
+}
+
+.product-card:nth-child(6) {
+  animation-delay: 0.3s;
+}
+
+.product-card:nth-child(7) {
+  animation-delay: 0.35s;
+}
+
+.product-card:nth-child(8) {
+  animation-delay: 0.4s;
+}
+
+.product-card:nth-child(9) {
+  animation-delay: 0.45s;
+}
+
+.product-card:nth-child(10) {
+  animation-delay: 0.5s;
+}
+
+.product-card:nth-child(11) {
+  animation-delay: 0.55s;
+}
+
+.product-card:nth-child(12) {
+  animation-delay: 0.6s;
+}
+
+/* =========================================================
+   PRODUCT BADGES
+========================================================= */
+
+.product-badge {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.product-card:hover .product-badge {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================================================
+   HEART BUTTON
+========================================================= */
+
+.heart-button {
+  transition:
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.heart-button:hover {
+  transform: scale(1.1);
+
+  box-shadow:
+    0 8px 20px rgba(212, 91, 114, 0.18);
+}
+
+.heart-button:active {
+  transform: scale(0.92);
+}
+
+/* =========================================================
+   PRODUCT PRICE
+========================================================= */
+
+.product-price {
+  color: var(--bloom-green);
+
+  font-weight: 700;
+
+  transition:
+    color 0.25s ease;
+}
+
+.product-card:hover .product-price {
+  color: var(--bloom-pink);
+}
+
+.product-old-price {
+  color: #a8a29e;
+
+  text-decoration: line-through;
+}
+
+/* =========================================================
+   RATING
+========================================================= */
+
+.product-rating {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 4px;
+
+  transition:
+    transform 0.3s ease;
+}
+
+.product-card:hover .product-rating {
+  transform: translateX(2px);
+}
+
+/* =========================================================
+   SHOP FILTER BAR
+========================================================= */
+
+.shop-filter-bar {
+  background:
+    rgba(255, 250, 247, 0.94);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border-bottom: 1px solid var(--bloom-border);
+}
+
+/* =========================================================
+   CATEGORY BUTTONS
+========================================================= */
+
+.category-filter-btn {
+  position: relative;
+
+  overflow: hidden;
+
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.category-filter-btn:hover {
+  transform: translateY(-1px);
+}
+
+.category-filter-btn::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: 0;
+  left: 50%;
+
+  width: 0;
+  height: 2px;
+
+  background: currentColor;
+
+  transform: translateX(-50%);
+
+  transition: width 0.3s ease;
+}
+
+.category-filter-btn:hover::after {
+  width: 45%;
+}
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-box {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.search-box:focus-within {
+  transform: translateY(-2px);
+
+  border-color: rgba(23, 63, 53, 0.25);
+
+  box-shadow:
+    0 12px 30px rgba(23, 63, 53, 0.08);
+}
+
+/* =========================================================
+   GLASS CARDS
+========================================================= */
+
+.glass-card {
+  background:
+    rgba(255, 255, 255, 0.12);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.18);
+
+  backdrop-filter:
+    blur(18px);
+
+  -webkit-backdrop-filter:
+    blur(18px);
+}
+
+/* =========================================================
+   CTA ANIMATION
+========================================================= */
+
+.cta-card {
+  position: relative;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.45s ease,
+    box-shadow 0.45s ease;
+}
+
+.cta-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: -50%;
+  left: -20%;
+
+  width: 140%;
+  height: 200%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.08),
+      transparent 55%
+    );
+
+  animation:
+    ctaGlow 7s ease-in-out infinite;
+}
+
+.cta-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 30px 70px rgba(23, 63, 53, 0.15);
+}
+
+@keyframes ctaGlow {
+  0%,
+  100% {
+    transform: translate3d(-2%, -2%, 0);
+  }
+
+  50% {
+    transform: translate3d(3%, 3%, 0);
+  }
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+  position: relative;
+
+  overflow: hidden;
+}
+
+footer a {
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+footer a:hover {
+  color: var(--bloom-pink-light);
+
+  transform: translateX(3px);
+}
+
+/* =========================================================
+   ICON BUTTONS
+========================================================= */
+
+.icon-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.icon-button:hover {
+  transform: translateY(-3px) scale(1.03);
+}
+
+.icon-button:active {
+  transform: scale(0.94);
+}
+
+/* =========================================================
+   FLOATING EFFECTS
+========================================================= */
+
+.float-card {
+  animation:
+    floatCard 5s ease-in-out infinite;
+}
+
+@keyframes floatCard {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* =========================================================
+   DECORATIVE BLOBS
+========================================================= */
+
+.bloom-orb {
+  pointer-events: none;
+
+  border-radius: 999px;
+
+  filter: blur(50px);
+
+  animation:
+    orbMove 10s ease-in-out infinite;
+}
+
+@keyframes orbMove {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate3d(15px, -20px, 0) scale(1.05);
+  }
+
+  66% {
+    transform: translate3d(-15px, 10px, 0) scale(0.97);
+  }
+}
+
+/* =========================================================
+   IMAGE REVEAL
+========================================================= */
+
+.image-reveal {
+  overflow: hidden;
+}
+
+.image-reveal img {
+  transform: scale(1.04);
+
+  transition:
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.image-reveal:hover img {
+  transform: scale(1);
+}
+
+/* =========================================================
+   PAGE SECTIONS
+========================================================= */
+
+main > section {
+  animation:
+    sectionEnter 0.7s ease both;
+}
+
+@keyframes sectionEnter {
+  from {
+    opacity: 0.75;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   CARDS GENERAL
+========================================================= */
+
+.card-hover {
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s ease,
+    border-color 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 20px 45px rgba(23, 63, 53, 0.11);
+}
+
+/* =========================================================
+   LOADING SHIMMER
+========================================================= */
+
+.shimmer {
+  position: relative;
+
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  transform: translateX(-100%);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.35),
+      transparent
+    );
+
+  animation:
+    shimmerMove 2s infinite;
+}
+
+@keyframes shimmerMove {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* =========================================================
+   FOCUS ACCESSIBILITY
+========================================================= */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--bloom-green);
+
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   TOUCH DEVICES
+========================================================= */
+
+@media (hover: none) {
+  .product-card:hover,
+  .category-card:hover,
+  .card-hover:hover,
+  .bloomora-btn:hover {
+    transform: none;
+  }
+
+  .product-card:hover .product-card-image img,
+  .category-card:hover img {
+    transform: none;
+  }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1024px) {
+  .section-padding {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .product-card {
+    border-radius: 20px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+  .container-shell,
+  .bloomora-container {
+    width: calc(100% - 28px);
+  }
+
+  .section-padding {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .product-card {
+    border-radius: 18px;
+  }
+
+  .category-card {
+    border-radius: 20px;
+  }
+
+  .bloomora-btn {
+    min-height: 46px;
+
+    padding: 10px 17px;
+
+    font-size: 13px;
+  }
+
+  .bloomora-input {
+    min-height: 48px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+  .container-shell,
+  .bloomora-container {
+    width: calc(100% - 20px);
+  }
+
+  .section-padding {
+    padding-top: 42px;
+    padding-bottom: 42px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
